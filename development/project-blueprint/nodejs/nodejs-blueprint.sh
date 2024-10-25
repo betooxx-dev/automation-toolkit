@@ -212,9 +212,12 @@ create_hexagonal_architecture() {
     
     create_base_structure "$project_name" "$project_path" "$language"
     mkdir -p src/{application,domain,infrastructure}
-    mkdir -p src/application/{ports,use-cases}
+    touch src/application/index.${language}
+    touch src/infrastructure/dependencies.${language}
+    touch src/infrastructure/routes.${language}
+    mkdir -p src/application/{services,use-cases}
     mkdir -p src/domain/{entities,value-objects}
-    mkdir -p src/infrastructure/{driving-adapters,driven-adapters,config}
+    mkdir -p src/infrastructure/{controllers,utilities}
     mkdir -p test
     
     create_base_files "$language" "$language"
@@ -226,7 +229,7 @@ Proyecto Node.js con arquitectura hexagonal usando ${language}.
 
 ## Estructura
 ### Application
-- ports: Puertos de entrada y salida
+- services: Interfaz de los servicios de la aplicación
 - use-cases: Casos de uso de la aplicación
 
 ### Domain
@@ -234,9 +237,8 @@ Proyecto Node.js con arquitectura hexagonal usando ${language}.
 - value-objects: Objetos de valor
 
 ### Infrastructure
-- driving-adapters: Adaptadores primarios (controllers, CLI, etc)
-- driven-adapters: Adaptadores secundarios (repositories, external services)
-- config: Configuraciones
+- controllers: Controladores de la aplicación
+- utilities: Utilidades de la aplicación
 
 ## Instalación
 \`\`\`bash

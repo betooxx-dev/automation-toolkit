@@ -85,6 +85,7 @@ src/
 - typescript
 - @types/node
 - @types/express
+- @types/cors
 - ts-node-dev
 
 ## 📦 Scripts Disponibles
